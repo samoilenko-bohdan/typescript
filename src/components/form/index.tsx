@@ -1,6 +1,6 @@
 import React from "react"
 import {connect} from "react-redux";
-
+import * as a from "../../redux/actions"
 
 interface IProps {
     onGetWeather: Function;
@@ -31,10 +31,10 @@ export default connect(
                 `http://localhost:8181/cxf/weather/city/${city},${country}`);
             const data = await apiCall.json();
             console.log(data);
-            if (data.cod !== "404") {
-                dispatch({type: "SET_WEATHER", data: data})
+            if (!data.cod) {
+                dispatch(a.SET_WEATHER(data))
             } else {
-                dispatch({type: "SET_ERROR"})
+                dispatch(a.SET_ERROR())
             }
         }
     })

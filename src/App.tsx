@@ -5,7 +5,7 @@ import Title from "./components/title";
 import Weather from "./components/weather";
 import Form from "./components/form";
 
-const App: React.FC = () => {
+export const App: React.FC = () => {
 
   return (
       <div>
