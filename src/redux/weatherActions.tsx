@@ -1,4 +1,4 @@
-import * as t from './actionTypes'
+import * as t from './weatherActionTypes'
 
 export const SET_WEATHER = (data: any) => ({ type: t.SET_WEATHER, data: data });
 export const SET_ERROR = () => (

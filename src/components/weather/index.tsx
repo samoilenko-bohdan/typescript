@@ -5,7 +5,7 @@ interface IProps {
     store: any;
 }
 
-class Weather extends React.Component<IProps> {
+export class Weather extends React.Component<IProps> {
 
     render() {
         return (

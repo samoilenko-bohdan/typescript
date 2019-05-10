@@ -1,12 +1,12 @@
 import React from "react"
 import {connect} from "react-redux";
-import * as a from "../../redux/actions"
+import * as a from "../../redux/weatherActions"
 
 interface IProps {
     onGetWeather: Function;
 }
 
-class Form extends React.Component<IProps> {
+export class Form extends React.Component<IProps> {
     render() {
         return (
             <form onSubmit={(event) => this.props.onGetWeather(event)}>

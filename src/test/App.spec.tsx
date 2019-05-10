@@ -1,18 +1,15 @@
 import React from 'react';
-import { shallow } from 'enzyme'
+import { shallow } from 'enzyme';
 import {App} from '../App';
 
-describe('News container', () => { // групируем с помощью describe все тесты для контейнера News
-  const store: any = { // создаем свойства
-    getState: () => {},
-  }
+describe('App container', () => {
 
-  describe('News container initial', () => {
-    const newsContainer = shallow(<App store={store} />)
+  describe('App container initial', () => {
+    const titleContainer = shallow(<App />);
 
     it('render initial', () => {
-      expect(newsContainer.find('div')).toHaveLength(6)// .find + поиск по тэгу
+      expect(titleContainer.find('div')).toHaveLength(6)
     })
 
   })
-})
+});

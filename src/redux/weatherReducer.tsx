@@ -13,13 +13,14 @@ interface IData {
 interface IAction {
     type: string;
     data: IData;
+    message: string;
 }
 
 interface IError {
     error: string;
 }
 
-export const reducer = (state = {}, action: IAction) => {
+export const weatherReducer = (state = {}, action: IAction) => {
     if (action.type === "SET_WEATHER") {
         return {
             "Location: ": action.data.cityName,
@@ -34,10 +35,9 @@ export const reducer = (state = {}, action: IAction) => {
             error: undefined
         }
     } else if (action.type === "SET_ERROR") {
-        var error: IError = {error: ""};
-        error.error = "The city is not found. Please enter the values or change city name";
+        var error: IError = {error: action.message};
         return error;
     } else {
         return state;
     }
-}
+};
