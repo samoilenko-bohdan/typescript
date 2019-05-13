@@ -16,15 +16,11 @@ interface IAction {
     message: string;
 }
 
-interface IError {
-    error: string;
-}
-
 export const weatherReducer = (state = {}, action: IAction) => {
     if (action.type === "SET_WEATHER") {
         return {
             "Location: ": action.data.cityName,
-            "Temperature: ":  action.data.temp + " ℃",
+            "Temperature: ": action.data.temp + " ℃",
             "Minimum temperature: ": action.data.minTemp + " ℃",
             "Maximum temperature: ": action.data.maxTemp + " ℃",
             "Clouds: ": action.data.clouds + " %",
@@ -35,8 +31,7 @@ export const weatherReducer = (state = {}, action: IAction) => {
             error: undefined
         }
     } else if (action.type === "SET_ERROR") {
-        var error: IError = {error: action.message};
-        return error;
+        return {error: action.message};
     } else {
         return state;
     }

@@ -1,6 +1,7 @@
 import React from "react"
 import {connect} from "react-redux";
 import * as a from "../../redux/weatherActions"
+import Button from '@material-ui/core/Button';
 
 interface IProps {
     onGetWeather: Function;
@@ -12,7 +13,10 @@ export class Form extends React.Component<IProps> {
             <form onSubmit={(event) => this.props.onGetWeather(event)}>
                 <input type="text" name="city" placeholder="City..."/>
                 <input type="text" name="country" placeholder="Country..."/>
-                <button>Get Weather</button>
+                <Button style={{ fontSize: '16px' }} type={"submit"} size={"large"} variant="contained"
+                        color="primary">
+                    Get Weather
+                </Button>
             </form>
         );
     }
@@ -30,7 +34,6 @@ export default connect(
             const apiCall = await fetch(
                 `http://localhost:8181/cxf/weather/city/${city},${country}`);
             const data = await apiCall.json();
-            console.log(data);
             if (!data.cod) {
                 dispatch(a.SET_WEATHER(data))
             } else {
